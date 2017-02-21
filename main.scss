@@ -7,6 +7,12 @@ h1{
 div{
    box-sizing: border-box;
 }
+#wait{
+  font-size:1.25em;
+  font-weight:bold;
+  position: absolute;
+  margin:1em auto;
+}
 .content{
   display:flex;
   flex-wrap: wrap;
@@ -22,6 +28,7 @@ div{
   height:100%;
 }
 #benchmarkResults{
+  position:relative;
   .suite{
     max-width:900px;
     border:1px solid black;
