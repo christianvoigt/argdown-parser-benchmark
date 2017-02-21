@@ -51874,7 +51874,7 @@ var antlr4Parser = __webpack_require__(49);
 //var fs = require("fs");
 //var path = require('path');
 var benchmark = __webpack_require__(51);
-var Benchmark = benchmark.runInContext({ _, process });
+var Benchmark = benchmark.runInContext({ _:_, process:process });
 window.Benchmark = Benchmark;
 var $ = __webpack_require__(52);
 __webpack_require__(53);

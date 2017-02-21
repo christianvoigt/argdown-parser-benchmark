@@ -5,7 +5,7 @@ var antlr4Parser = require("argdown-parser-antlr4-test");
 //var fs = require("fs");
 //var path = require('path');
 var benchmark = require('benchmark');
-var Benchmark = benchmark.runInContext({ _, process });
+var Benchmark = benchmark.runInContext({ _:_, process:process });
 window.Benchmark = Benchmark;
 var $ = require('jquery');
 require("./main.scss");
