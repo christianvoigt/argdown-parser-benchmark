@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: "./index.js",
@@ -12,22 +14,17 @@ module.exports = {
       ],
       rules: [{
           test: /\.scss$/,
-          use: [{
-              loader: "style-loader" // creates style nodes from JS strings
-          }, {
-              loader: "css-loader" // translates CSS into CommonJS
-          }, {
-              loader: "sass-loader" // compiles Sass to CSS
-          }]
-      },
-      {
-          test: /\.css$/,
-          use: [
-            'style-loader',
-            'css-loader?importLoaders=1',
-            'postcss-loader'
-          ]
+          loaders: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
       }]
     },
-    node: { module: "empty", net: "empty", fs: "empty", microtime: "empty" }
+    node: { module: "empty", net: "empty", fs: "empty", microtime: "empty" },
+    plugins: [
+  new webpack.LoaderOptionsPlugin({
+    options: {
+      postcss: [
+        autoprefixer(),
+      ]
+     }
+  })
+],
     };
