@@ -34171,7 +34171,7 @@ exports = module.exports = __webpack_require__(81)();
 
 
 // module
-exports.push([module.i, "h1 {\n  color: red; }\n", ""]);
+exports.push([module.i, "h1 {\n  color: blue;\n  text-align: center;\n  font-size: 2em;\n  margin-top: 1em; }\n\ndiv {\n  box-sizing: border-box; }\n\n.content {\n  display: flex;\n  flex-wrap: wrap; }\n\n.left, .right {\n  box-sizing: border-box;\n  width: 50%;\n  padding: 1em; }\n\n#benchmarkInput {\n  font-size: 1.25em;\n  width: 100%;\n  height: 100%; }\n\n#benchmarkResults .suite {\n  max-width: 900px;\n  border: 1px solid black;\n  border-bottom: 0;\n  display: flex;\n  flex-wrap: wrap; }\n  #benchmarkResults .suite:last-of-type {\n    border-bottom: 1px solid black; }\n\n#benchmarkResults .headerRow .benchName, #benchmarkResults .headerRow .benchRate, #benchmarkResults .headerRow .benchSpeed {\n  background-color: blue;\n  color: white;\n  font-size: 1.25em;\n  font-weight: normal; }\n\n#benchmarkResults .benchName {\n  width: 33.33%;\n  font-size: 1.25em;\n  font-weight: bold;\n  background-color: #ddd;\n  color: red;\n  padding: 1em; }\n\n#benchmarkResults .benchRate {\n  width: 33.33%;\n  padding: 1em; }\n\n#benchmarkResults .benchSpeed {\n  width: 33.33%;\n  padding: 1em; }\n\n#runBenchmarkButton {\n  margin-top: 2em;\n  padding: 0.25em;\n  font-size: 2em;\n  font-weight: bold; }\n", ""]);
 
 // exports
 
@@ -51891,6 +51891,19 @@ $(function(){
   });
 
   var runBenchmark = function(input){
+    $("#runBenchmarkButton").prop('disabled', true);
+    //handle "Running..."
+    var valueBeforeTheDots = "Running"
+    var wait = document.getElementById("wait");
+    wait.innerHTML = valueBeforeTheDots
+    var dots = window.setInterval(function () {
+        if (wait.innerHTML.length >= valueBeforeTheDots.length + 3)
+            wait.innerHTML = valueBeforeTheDots
+        else
+            wait.innerHTML += "."
+    }, 500);
+
+
     var result = {};
     var suite = new Benchmark.Suite("Argdown Parsers",{
       'onStart' : function(){
@@ -51928,11 +51941,10 @@ $(function(){
       })
       window.clearInterval(dots)
       $('#wait').html('&nbsp;')
-      myBarChart = new Chart(ctx, {
-          type: 'horizontalBar',
-          data: data,
-          options: {}
-      })
+
+      $("#runBenchmarkButton").prop('disabled', false);
+      window.clearInterval(dots)
+      $('#wait').html('&nbsp;')
     })
     // run async
     .run({ 'async': true });
