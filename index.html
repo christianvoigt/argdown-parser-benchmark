@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <h1>Argdown Parser Benchmark</h1>
+      <div class="content">
+        <div class="left">
+      <textarea id="benchmarkInput">First line
+  + Second line
+  - Third line
+
+Fourth line
+  <- Fifth line
+    <+ Sixth line
+
+A
+  + B
+  - C
+
+      <+ D
+        <- E
+          +> F
+    -> G
+
+Hsdfsdf
+  - I
+
+  - J
+K
+      </textarea>
+    </div>
+      <div class="right">
+      <div id="benchmarkResults">
+                <div id="wait" style="margin-left: auto;margin-right: auto;">&nbsp;</div>        <div class="suite headerRow">
+
+            <div class="benchName">Library</div>
+            <div class="benchRate">Ops/sec</div>
+            <div class="benchSpeed">Relative Speed</div>
+        </div>
+        <div class="suite chevrotain">
+          <div class="benchName">Chevrotain Parser</div>
+          <div class="benchRate">
+            <div class="value">&nbsp;</div>
+            <div class="delta">&nbsp;</div>
+          </div>
+          <div class="benchSpeed">&nbsp;</div>
+        </div>
+        <div class="suite antlr4">
+          <div class="benchName">ANTLR4 Parser</div>
+          <div class="benchRate">
+            <div class="value">&nbsp;</div>
+            <div class="delta">&nbsp;</div>
+          </div>
+          <div class="benchSpeed">&nbsp;</div>
+        </div>
+      </div>
+      <button id="runBenchmarkButton">Run</button>
+    </div>
+        <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+      </div>
+    </body>
+</html>

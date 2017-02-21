@@ -1,0 +1,65 @@
+h1{
+  color:blue;
+  text-align:center;
+  font-size:2em;
+  margin-top:1em;
+}
+div{
+   box-sizing: border-box;
+}
+.content{
+  display:flex;
+  flex-wrap: wrap;
+}
+.left,.right{
+  box-sizing:border-box;
+  width:50%;
+  padding:1em;
+}
+#benchmarkInput{
+  font-size:1.25em;
+  width:100%;
+  height:100%;
+}
+#benchmarkResults{
+  .suite{
+    max-width:900px;
+    border:1px solid black;
+    border-bottom:0;
+    display: flex;
+    flex-wrap: wrap;
+    &:last-of-type{
+      border-bottom:1px solid black;
+    }
+  }
+  .headerRow{
+    .benchName, .benchRate, .benchSpeed{
+      background-color:blue;
+      color:white;
+      font-size:1.25em;
+      font-weight:normal;
+    }
+  }
+  .benchName{
+    width:33.33%;
+    font-size:1.25em;
+    font-weight:bold;
+    background-color:#ddd;
+    color:red;
+    padding:1em;
+  }
+  .benchRate{
+    width:33.33%;
+    padding:1em;
+  }
+  .benchSpeed{
+    width:33.33%;
+    padding:1em;
+  }
+}
+#runBenchmarkButton{
+  margin-top:2em;
+  padding:0.25em;
+  font-size:2em;
+  font-weight:bold;
+}
